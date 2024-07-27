@@ -1,32 +1,26 @@
-package app;package lesson5;
+package app;
 
-import java.awt.*;
-import java.util.Scanner;
 
-public class ML5 {
-    public static void main(String[] args) {
+    import java.util.Scanner;
 
-        Scanner scanner = new Scanner(System.in);
-        int myNumber = scanner.nextInt();
-//мы хоть с  вами гоорилии о том что бы не использовать варки..... просто пробую.
-        var firstPercentage = 2.5;
-        var secondPercentage = 4.3;
-        var thirdPercentage = 6.7;
+    public class Main {
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
 
-        if (myNumber <= 10000) {
-            var howMuch = myNumber / 100 / firstPercentage;
-            System.out.printf("I need pay %.2f %s ", howMuch, "UAH"); // я не знаю почему я сидел тут целый день, но
-        } else if (myNumber <= 10000.01 || myNumber <= 25000) {       // кажется я закончил. Ощущение что моя Java глючила
-            var howMuch = myNumber / 100 / secondPercentage;          // + мышка сломалась . Хорошего вечера4ч
-            System.out.printf("I need pay %.2f %s ", howMuch, "UAH");
-        } else if (myNumber >= 25000.01) {
-            var howMuch = myNumber / 100 / thirdPercentage;
-            System.out.printf("I need pay %.2f %s ", howMuch, "UAH");
+            System.out.print("Введите сумму дохода: ");
+            double income = scanner.nextDouble();
+
+            double tax = 0.0;
+
+            if (income <= 10000) {
+                tax = income * 0.025;
+            } else if (income <= 25000) {
+                tax = 10000 * 0.025 + (income - 10000) * 0.043;
+            } else {
+                tax = 10000 * 0.025 + 15000 * 0.043 + (income - 25000) * 0.067;
+            }
+
+            System.out.printf("Сумма налога: %.2f\n", tax);
         }
-
-
     }
-
-}
-
 
